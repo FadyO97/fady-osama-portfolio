@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fady Osama — Senior Data Analyst &amp; BI Developer</title>
+<meta name="description" content="Portfolio of Fady Osama, Senior Data Analyst — Excel, SQL, Power BI and Python projects with measurable business impact.">
+
+<!-- ============================================================
+     EDIT ME: Update the title tag and meta description above with
+     your own name and a one-line description of what you do.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #0B2036;
+    --bg-alt: #081A2B;
+    --surface: #102E49;
+    --surface-2: #143B5D;
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.18);
+    --text: #F5F7FA;
+    --muted: #A9B8C7;
+    --muted-2: #71869B;
+    --accent: #C37D16;
+    --accent-soft: rgba(195,125,22,0.16);
+    --brand-blue: #2164AB;
+    --teal: #4FD1C5;
+    --green: #3FA66D;
+    --blue: #6EA8FE;
+
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --maxw: 1180px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  html:focus-within{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *, *::before, *::after{
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection{ background: var(--accent); color: #12181f; }
+
+  a{ color: inherit; text-decoration: none; }
+
+  img, svg{ display:block; max-width:100%; }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Background texture: faint grid, evokes a spreadsheet/console */
+  .grid-bg{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(233,237,241,0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(233,237,241,0.028) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 85%);
+  }
+
+  /* ============ NAV ============ */
+  header.site-nav{
+    position: sticky;
+    top:0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(15,23,32,0.82);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 18px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    color: var(--text);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .logo .dot{
+    width:8px; height:8px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  nav.links{
+    display:flex;
+    gap: 34px;
+    align-items:center;
+  }
+  nav.links a{
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 500;
+    transition: color .15s ease;
+    position: relative;
+  }
+  nav.links a:hover{ color: var(--text); }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text);
+    cursor:pointer;
+    transition: all .18s ease;
+    white-space: nowrap;
+  }
+  .btn:hover{ border-color: var(--accent); color: var(--accent); }
+  .btn.primary{
+    background: var(--accent);
+    color: #16130a;
+    border-color: var(--accent);
+  }
+  .btn.primary:hover{
+    background: #f2b558;
+    color: #16130a;
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .nav-cta{ display:flex; gap:12px; align-items:center; }
+
+  .menu-toggle{ display:none; }
+
+  /* ============ HERO ============ */
+  .hero{
+    position: relative;
+    z-index: 1;
+    padding: 96px 0 72px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before{
+    content:'';
+    width: 22px; height: 1px;
+    background: var(--accent);
+  }
+  h1.headline{
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 22px;
+  }
+  h1.headline .accent-text{ color: var(--accent); }
+  .hero p.lede{
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 52ch;
+    margin: 0 0 34px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .hero-meta{
+    display:flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted-2);
+  }
+  .hero-meta span{ display:flex; align-items:center; gap:8px; }
+  .hero-meta .sw{ width:6px;height:6px;border-radius:50%; background: var(--green); }
+
+  /* ---- Dashboard widget (signature element) ---- */
+  .dash-card{
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55);
+  }
+  .dash-card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dash-card-head .title{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .dash-dots{ display:flex; gap:6px; }
+  .dash-dots i{ width:8px; height:8px; border-radius:50%; background: var(--border-strong); display:block; }
+  .dash-dots i:nth-child(1){ background: #E8635B; }
+  .dash-dots i:nth-child(2){ background: #E8A33D; }
+  .dash-dots i:nth-child(3){ background: #3FA66D; }
+
+  .metric-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .metric-tile{
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .metric-tile .num{
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-tile .num .unit{ font-size: 15px; color: var(--accent); }
+  .metric-tile .label{
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  .spark-row{
+    display:flex;
+    align-items:flex-end;
+    gap: 5px;
+    height: 46px;
+    padding: 10px 4px 0;
+  }
+  .spark-row i{
+    flex:1;
+    background: linear-gradient(180deg, var(--teal), rgba(79,209,197,0.15));
+    border-radius: 3px 3px 0 0;
+    display:block;
+  }
+
+  /* ============ SECTION SCAFFOLDING ============ */
+  section{ position: relative; z-index: 1; padding: 88px 0; }
+  section.tight{ padding: 64px 0; }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .section-head .kicker{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display:block;
+  }
+  .section-head h2{
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .section-head p{
+    color: var(--muted);
+    max-width: 44ch;
+    margin: 10px 0 0;
+    font-size: 15px;
+  }
+
+  hr.rule{
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  /* ============ TOOLKIT ============ */
+  .toolkit-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .tool-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 22px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .tool-card:hover{ border-color: var(--border-strong); transform: translateY(-3px); }
+  .tool-icon{
+    width: 40px; height: 40px;
+    border-radius: 9px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 18px;
+  }
+  .tool-icon svg{ width: 20px; height: 20px; }
+  .tool-card h3{
+    font-family: var(--font-display);
+    font-size: 17px;
+    margin: 0 0 6px;
+    font-weight: 600;
+  }
+  .tool-card .role{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted-2);
+    margin-bottom: 14px;
+  }
+  .tool-card ul{
+    list-style: none;
+    padding:0; margin:0;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .tool-card li{
+    font-size: 13.5px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .tool-card li::before{
+    content:'';
+    position:absolute; left:0; top:7px;
+    width:5px; height:5px;
+    background: currentColor;
+    border-radius: 50%;
+  }
+
+  .tc-excel .tool-icon{ background: rgba(63,166,109,0.14); color: var(--green); }
+  .tc-sql .tool-icon{ background: rgba(79,209,197,0.14); color: var(--teal); }
+  .tc-pbi .tool-icon{ background: var(--accent-soft); color: var(--accent); }
+  .tc-py .tool-icon{ background: rgba(110,168,254,0.14); color: var(--blue); }
+  .tc-excel li::before{ color: var(--green); }
+  .tc-sql li::before{ color: var(--teal); }
+  .tc-pbi li::before{ color: var(--accent); }
+  .tc-py li::before{ color: var(--blue); }
+
+  /* ============ PROJECTS ============ */
+  .tabbar{
+    display:flex;
+    gap: 4px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .tab-btn{
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--muted);
+    background: rgba(255,255,255,0.015);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    padding: 11px 20px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transform: translateY(1px);
+    transition: all .15s ease;
+    white-space: nowrap;
+  }
+  .tab-btn .sw{ width:7px; height:7px; border-radius:50%; background: var(--muted-2); }
+  .tab-btn:hover{ color: var(--text); }
+  .tab-btn.active{
+    color: var(--text);
+    background: var(--surface);
+    border-color: var(--border-strong);
+    border-bottom: 1px solid var(--surface);
+  }
+  .tab-btn[data-tool="excel"].active .sw{ background: var(--green); }
+  .tab-btn[data-tool="sql"].active .sw{ background: var(--teal); }
+  .tab-btn[data-tool="powerbi"].active .sw{ background: var(--accent); }
+  .tab-btn[data-tool="python"].active .sw{ background: var(--blue); }
+  .tab-btn[data-tool="all"].active .sw{ background: var(--text); }
+
+  .project-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .project-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px;
+    display:flex;
+    flex-direction:column;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .project-card:hover{ border-color: var(--border-strong); transform: translateY(-3px); }
+  .project-card.hidden{ display:none; }
+
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border-strong);
+    width: fit-content;
+    margin-bottom: 16px;
+  }
+  .tag .sw{ width:6px; height:6px; border-radius:50%; }
+  .tag.excel{ color: var(--green); } .tag.excel .sw{ background: var(--green); }
+  .tag.sql{ color: var(--teal); } .tag.sql .sw{ background: var(--teal); }
+  .tag.powerbi{ color: var(--accent); } .tag.powerbi .sw{ background: var(--accent); }
+  .tag.python{ color: var(--blue); } .tag.python .sw{ background: var(--blue); }
+
+  .project-card h3{
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  .project-card .problem{
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.6;
+  }
+  .impact-list{
+    list-style:none;
+    padding:0; margin: 0 0 18px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .impact-list li{
+    font-size: 13.5px;
+    color: var(--text);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .impact-list li::before{
+    content: '↑';
+    position:absolute; left:0; top:0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .stack-row{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-bottom: 20px;
+  }
+  .chip{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .card-links{
+    margin-top: auto;
+    display:flex; gap: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .card-links a{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    display:flex; align-items:center; gap:6px;
+    transition: color .15s ease;
+  }
+  .card-links a:hover{ color: var(--accent); }
+  .card-links svg{ width:13px; height:13px; }
+
+  /* ============ CERTIFICATIONS ============ */
+  .cert-strip{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .cert-item{
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--surface);
+  }
+  .cert-item .year{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display:block;
+  }
+  .cert-item h4{
+    font-size: 14.5px;
+    margin: 0 0 4px;
+    font-weight: 600;
+    font-family: var(--font-display);
+  }
+  .cert-item p{
+    font-size: 12.5px;
+    color: var(--muted-2);
+    margin: 0;
+  }
+
+  /* ============ CONTACT / FOOTER ============ */
+  .contact-panel{
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 56px;
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items:center;
+  }
+  .contact-panel h2{
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+  .contact-panel p{
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 46ch;
+    margin: 0;
+  }
+  .contact-links{
+    display:flex;
+    flex-direction:column;
+    gap: 4px;
+  }
+  .contact-links a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--text);
+    transition: color .15s ease, padding-left .15s ease;
+  }
+  .contact-links a:last-child{ border-bottom: none; }
+  .contact-links a:hover{ color: var(--accent); padding-left: 8px; }
+  .contact-links a .lbl{ color: var(--muted-2); font-family: var(--font-mono); font-size: 12px; }
+  .contact-links svg{ width:14px; height:14px; }
+
+  footer{
+    padding: 40px 0 60px;
+    text-align:center;
+  }
+  footer p{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--muted-2);
+    margin: 0;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 980px){
+    .toolkit-grid{ grid-template-columns: repeat(2, 1fr); }
+    .project-grid{ grid-template-columns: 1fr; }
+    .cert-strip{ grid-template-columns: repeat(2, 1fr); }
+    .hero-grid{ grid-template-columns: 1fr; }
+    .contact-panel{ grid-template-columns: 1fr; padding: 40px 28px; }
+  }
+
+  @media (max-width: 720px){
+    nav.links{ display:none; }
+    .wrap{ padding: 0 20px; }
+    .nav-inner{ padding: 16px 20px; }
+    .hero{ padding: 56px 0 48px; }
+    section{ padding: 60px 0; }
+    .toolkit-grid{ grid-template-columns: 1fr; }
+    .cert-strip{ grid-template-columns: 1fr; }
+    .section-head{ align-items:flex-start; }
+    .metric-grid{ grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo"><span class="dot"></span>Fady Osama</a>
+    <nav class="links">
+      <a href="#toolkit">Toolkit</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <!-- EDIT ME: point this at your actual hosted resume PDF -->
+      <a class="btn primary" href=https://drive.google.com/file/d/19-i2lnkjRuDVd8nZW1hnOiUMFe0WMkk0/view?usp=sharing download>Download Résumé</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Senior Data Analyst &amp; BI Developer</span>
+      <h1 class="headline">I turn messy data into decisions<span class="accent-text">.</span></h1>
+      <p class="lede">
+        3+ years building the reporting and analysis layer between raw data and the people who
+        act on it — spreadsheet models, SQL pipelines, Power BI dashboards, and Python automation
+        that hold up in production, not just in a demo.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="sw"></i>Open to Senior Analyst / BI roles</span>
+        <span>Based in Cairo</span>
+        <span>Remote &amp; hybrid friendly</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="dash-card">
+        <div class="dash-card-head">
+          <span class="title">impact_summary.pbix</span>
+          <div class="dash-dots"><i></i><i></i><i></i></div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="num">3<span class="unit">yrs</span></div>
+            <div class="label">Analytics experience</div>
+          </div>
+          <div class="metric-tile">
+            <div class="num">10<span class="unit">+</span></div>
+            <div class="label">Dashboards shipped</div>
+          </div>
+          <div class="metric-tile">
+            <div class="num">$20<span class="unit">K</span></div>
+            <div class="label">Cost savings identified</div>
+          </div>
+          <div class="metric-tile">
+            <div class="num">10<span class="unit">hrs/wk</span></div>
+            <div class="label">Reporting time automated away</div>
+          </div>
+        </div>
+        <div class="spark-row" aria-hidden="true">
+          <i style="height:35%"></i><i style="height:52%"></i><i style="height:40%"></i>
+          <i style="height:68%"></i><i style="height:58%"></i><i style="height:80%"></i>
+          <i style="height:64%"></i><i style="height:92%"></i><i style="height:74%"></i>
+          <i style="height:100%"></i><i style="height:86%"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLKIT ============ -->
+<section id="toolkit" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="kicker">Core Toolkit</span>
+        <h2>Four tools, one analytics workflow</h2>
+      </div>
+      <p>From first extraction to the dashboard a VP checks every Sunday morning.</p>
+    </div>
+
+    <div class="toolkit-grid">
+      <div class="tool-card tc-excel">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v18M3 9h18M3 15h18"/></svg>
+        </div>
+        <h3>Excel</h3>
+        <div class="role">Modeling &amp; ad-hoc analysis</div>
+        <ul>
+          <li>Advanced formulas: INDEX/MATCH, XLOOKUP, array &amp; LAMBDA functions</li>
+          <li>Pivot tables, Power Query (ETL), Power Pivot data models</li>
+          <li>Financial &amp; operational models with scenario / sensitivity analysis</li>
+          <li>VBA macros for repetitive report automation</li>
+        </ul>
+      </div>
+
+      <div class="tool-card tc-sql">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+        </div>
+        <h3>SQL</h3>
+        <div class="role">Querying &amp; data pipelines</div>
+        <ul>
+          <li>Complex joins, window functions, CTEs on multi-million row tables</li>
+          <li>Query performance tuning &amp; indexing strategy</li>
+          <li>Stored procedures for scheduled reporting jobs</li>
+          <li>PostgreSQL, SQL Server &amp; Snowflake in production</li>
+        </ul>
+      </div>
+
+      <div class="tool-card tc-pbi">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+        </div>
+        <h3>Power BI</h3>
+        <div class="role">Dashboards &amp; reporting</div>
+        <ul>
+          <li>DAX measures, calculation groups &amp; time-intelligence</li>
+          <li>Star-schema data modeling for fast, scalable reports</li>
+          <li>Row-level security &amp; scheduled refresh via gateways</li>
+          <li>Executive dashboards adopted as source-of-truth KPIs</li>
+        </ul>
+      </div>
+
+      <div class="tool-card tc-py">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a5 5 0 00-5 5v2H5a3 3 0 00-3 3v2a3 3 0 003 3h2v2a5 5 0 005 5"/><path d="M12 22a5 5 0 005-5v-2h2a3 3 0 003-3v-2a3 3 0 00-3-3h-2V5a5 5 0 00-5-5"/></svg>
+        </div>
+        <h3>Python</h3>
+        <div class="role">Automation &amp; analysis</div>
+        <ul>
+          <li>pandas &amp; NumPy for data cleaning and transformation</li>
+          <li>Automated ETL scripts replacing manual weekly reporting</li>
+          <li>matplotlib / seaborn / plotly for exploratory analysis</li>
+          <li>scikit-learn for lightweight forecasting &amp; segmentation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule wrap">
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="kicker">Selected Work</span>
+        <h2>Projects, by tool</h2>
+      </div>
+      <p>Each project ships with the underlying files or repo — click through for the real thing, not just a screenshot.</p>
+    </div>
+
+    <div class="tabbar" role="tablist" aria-label="Filter projects by tool">
+      <button class="tab-btn active" data-tool="all" role="tab" aria-selected="true"><span class="sw"></span>All Projects</button>
+      <button class="tab-btn" data-tool="excel" role="tab" aria-selected="false"><span class="sw"></span>Excel</button>
+      <button class="tab-btn" data-tool="sql" role="tab" aria-selected="false"><span class="sw"></span>SQL</button>
+      <button class="tab-btn" data-tool="powerbi" role="tab" aria-selected="false"><span class="sw"></span>Power BI</button>
+      <button class="tab-btn" data-tool="python" role="tab" aria-selected="false"><span class="sw"></span>Python</button>
+    </div>
+
+    <div class="project-grid" id="project-grid">
+
+      <!-- Project 1: Excel -->
+      <article class="project-card" data-tool="excel">
+        <span class="tag excel"><span class="sw"></span>Excel</span>
+        <h3>Regional Sales Forecasting Model</h3>
+        <p class="problem">Built a rolling 12-month forecast model for a 6-region sales org that had been forecasting in disconnected spreadsheets with no version control.</p>
+        <ul class="impact-list">
+          <li>Cut monthly forecast prep time from 3 days to 4 hours</li>
+          <li>Reduced forecast variance from ~18% to under 7%</li>
+          <li>Adopted by finance as the standing S&amp;OP input</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Query</span>
+          <span class="chip">Power Pivot</span>
+          <span class="chip">DAX-lite measures</span>
+          <span class="chip">Scenario modeling</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>View Workbook</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+      <!-- Project 2: Excel -->
+      <article class="project-card" data-tool="excel">
+        <span class="tag excel"><span class="sw"></span>Excel</span>
+        <h3>Headcount &amp; Cost-to-Serve Tracker</h3>
+        <p class="problem">Designed a dynamic headcount and labor-cost model spanning 12 departments, replacing a manual reconciliation process prone to broken links.</p>
+        <ul class="impact-list">
+          <li>Eliminated recurring $40K/yr in reporting overtime costs</li>
+          <li>Single source of truth across HR, Finance and Ops</li>
+          <li>Fully automated refresh via Power Query connections</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">INDEX/MATCH</span>
+          <span class="chip">XLOOKUP</span>
+          <span class="chip">VBA macros</span>
+          <span class="chip">Conditional formatting</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>View Workbook</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+      <!-- Project 3: SQL -->
+      <article class="project-card" data-tool="sql">
+        <span class="tag sql"><span class="sw"></span>SQL</span>
+        <h3>Customer Churn Data Pipeline</h3>
+        <p class="problem">Wrote a set of production SQL views and a nightly stored procedure to flag at-risk accounts for the retention team, replacing a manual weekly export.</p>
+        <ul class="impact-list">
+          <li>Surfaced churn signals 3 weeks earlier than the prior process</li>
+          <li>Retention team recovered an estimated $410K in ARR</li>
+          <li>Query runtime improved 6x after indexing &amp; rewrite</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Window functions</span>
+          <span class="chip">CTEs</span>
+          <span class="chip">Stored procedures</span>
+          <span class="chip">PostgreSQL</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>View Repo</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+      <!-- Project 4: SQL -->
+      <article class="project-card" data-tool="sql">
+        <span class="tag sql"><span class="sw"></span>SQL</span>
+        <h3>Warehouse Query Layer Refactor</h3>
+        <p class="problem">Audited and rewrote 30+ legacy analytical queries feeding downstream dashboards that were timing out during peak reporting hours.</p>
+        <ul class="impact-list">
+          <li>Average query time reduced from 47s to 6s</li>
+          <li>Removed 4 redundant nightly ETL jobs</li>
+          <li>Documented a query style guide adopted team-wide</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Query optimization</span>
+          <span class="chip">Indexing</span>
+          <span class="chip">Snowflake</span>
+          <span class="chip">dbt</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>View Repo</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+      <!-- Project 5: Power BI -->
+      <article class="project-card" data-tool="powerbi">
+        <span class="tag powerbi"><span class="sw"></span>Power BI</span>
+        <h3>Executive Revenue &amp; Margin Dashboard</h3>
+        <p class="problem">Built the exec-facing dashboard tracking revenue, margin and pipeline health across 4 business units, replacing a static monthly slide deck.</p>
+        <ul class="impact-list">
+          <li>Adopted as the standing Monday leadership review</li>
+          <li>Cut reporting-prep labor by ~15 hours per month</li>
+          <li>Star-schema model scaled to 8M+ rows with sub-second refresh</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">DAX</span>
+          <span class="chip">Star schema</span>
+          <span class="chip">Row-level security</span>
+          <span class="chip">Scheduled refresh</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Live Report</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+      <!-- Project 6: Power BI -->
+      <article class="project-card" data-tool="powerbi">
+        <span class="tag powerbi"><span class="sw"></span>Power BI</span>
+        <h3>Supply Chain Operations Dashboard</h3>
+        <p class="problem">Designed a real-time inventory and fulfillment dashboard for the ops team, consolidating 5 disconnected source systems into one model.</p>
+        <ul class="impact-list">
+          <li>Stockout incidents reduced by 22% in the first quarter</li>
+          <li>Cut manual data reconciliation from 6 hrs/wk to near zero</li>
+          <li>Calculation groups simplified 40+ measures into 12</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">Power Query</span>
+          <span class="chip">Calculation groups</span>
+          <span class="chip">Time intelligence</span>
+          <span class="chip">Gateway refresh</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Live Report</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+      <!-- Project 7: Python -->
+      <article class="project-card" data-tool="python">
+        <span class="tag python"><span class="sw"></span>Python</span>
+        <h3>Automated Weekly Reporting Pipeline</h3>
+        <p class="problem">Replaced a manual, error-prone weekly report assembled by hand from 4 systems with a scheduled Python pipeline that builds and emails the report.</p>
+        <ul class="impact-list">
+          <li>Saved roughly 18 hours per week across the team</li>
+          <li>Zero missed or late reports since launch</li>
+          <li>Report errors traced to source-data issues, not manual entry</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">pandas</span>
+          <span class="chip">SQLAlchemy</span>
+          <span class="chip">Airflow</span>
+          <span class="chip">smtplib</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>View Repo</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+      <!-- Project 8: Python -->
+      <article class="project-card" data-tool="python">
+        <span class="tag python"><span class="sw"></span>Python</span>
+        <h3>Customer Segmentation &amp; Forecasting</h3>
+        <p class="problem">Used clustering and time-series forecasting to segment 50K+ customers by behavior and project demand by segment for the marketing team.</p>
+        <ul class="impact-list">
+          <li>Informed a campaign that lifted repeat purchase rate 11%</li>
+          <li>Forecast accuracy within 8% MAPE at the segment level</li>
+          <li>Delivered as a reusable, documented Jupyter workflow</li>
+        </ul>
+        <div class="stack-row">
+          <span class="chip">scikit-learn</span>
+          <span class="chip">K-means</span>
+          <span class="chip">Prophet</span>
+          <span class="chip">matplotlib</span>
+        </div>
+        <div class="card-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>View Repo</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>Case Study</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications" class="tight reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="kicker">Credentials</span>
+        <h2>Certifications &amp; education</h2>
+      </div>
+    </div>
+    <div class="cert-strip">
+      <div class="cert-item">
+        <span class="year">2025</span>
+        <h4>MBA in Digital Transformation</h4>
+        <p>ESLSCA University</p>
+      </div>
+      <div class="cert-item">
+        <span class="year">2024</span>
+        <h4>People Analytics</h4>
+        <p>Coursera</p>
+      </div>
+      <div class="cert-item">
+        <span class="year">2021</span>
+        <h4>Google Data Analytics Certificate</h4>
+        <p>Coursera</p>
+      </div>
+      <div class="cert-item">
+        <span class="year">2019</span>
+        <h4>B.A. in Economics</h4>
+        <p>The British University in Egypt</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="reveal">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <h2>Let's talk about your data.</h2>
+        <p>Open to Senior Data Analyst and Senior BI Developer roles. Happy to walk through
+        any project in this portfolio in more depth, or dig into a live data problem together.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:fadyosama519@email.com"><span><span class="lbl">EMAIL</span> &nbsp;fadyosama519@email.com</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="https://linkedin.com/in/fady-osama-data-analyst/" target="_blank" rel="noopener"><span><span class="lbl">LINKEDIN</span> &nbsp;/in/fady-osama-data-analyst</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="https://github.com/Fadyo97" target="_blank" rel="noopener"><span><span class="lbl">GITHUB</span> &nbsp;/Fadyo97</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href=https://drive.google.com/file/d/19-i2lnkjRuDVd8nZW1hnOiUMFe0WMkk0/view?usp=sharing download><span><span class="lbl">RÉSUMÉ</span> &nbsp;Download PDF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>© 2026 Fady Osama· Built with HTML, CSS &amp; a bit of Python · Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+  // ---------- Scroll reveal ----------
+  const revealEls = document.querySelectorAll('.reveal, .tool-card, .project-card, .cert-item');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+  // ---------- Project tab filtering ----------
+  const tabs = document.querySelectorAll('.tab-btn');
+  const cards = document.querySelectorAll('.project-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+
+      const tool = tab.dataset.tool;
+      cards.forEach(card => {
+        if (tool === 'all' || card.dataset.tool === tool){
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // ---------- Animated metric counters ----------
+  const counters = document.querySelectorAll('.metric-tile .num');
+  let countersAnimated = false;
+
+  function animateCounters(){
+    if (countersAnimated) return;
+    countersAnimated = true;
+    counters.forEach(el => {
+      const unitEl = el.querySelector('.unit');
+      const unitText = unitEl ? unitEl.outerHTML : '';
+      const target = parseFloat(el.textContent);
+      if (isNaN(target)) return;
+      const duration = 900;
+      const start = performance.now();
+      const isDecimal = el.textContent.includes('.');
+
+      function tick(now){
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.innerHTML = (isDecimal ? current.toFixed(1) : Math.round(current)) + unitText;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        animateCounters();
+        heroObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+
+  const dashCard = document.querySelector('.dash-card');
+  if (dashCard) heroObserver.observe(dashCard);
+</script>
+
+</body>
+</html>
